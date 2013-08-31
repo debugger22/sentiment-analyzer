@@ -7,14 +7,14 @@ import json
 
 class Emoticons:
 	'''
-		This class uses emoticons detection to classify the passed string as positive or negative
+	This class uses emoticons detection to classify the passed string as positive or negative
 	'''
 	def analyse(self, string):
 		'''
-			This method takes a string as parameter and returns a dictionary of
-			probabilities of sentiment of the string
-			keys: 'positive', 'negative'
-			If the test fails, both the keys will have value equal to 0
+		This method takes a string as parameter and returns a dictionary of
+		probabilities of sentiment of the string
+		keys: 'positive', 'negative'
+		If the test fails, both the keys will have value equal to 0
 		'''
 		self.string = re.sub(r'\W+:\)\(\'\{\}\-\@\>\<\=\;\[\]\!', ' ', string).lower()
 		self.string = self.string.replace('.', '')
@@ -42,14 +42,14 @@ class Emoticons:
 
 class DictionaryTest:
 	'''
-		This class uses a set of English words and their subjectivity to give a score to a string
+	This class uses a set of English words and their subjectivity to give a score to a string
 	'''
 	def analyse(self, string):
 		'''
-			This method takes a string as parameter and returns a dictionary of
-			probabilities of sentiment of the string
-			keys: 'positive', 'negative'
-			If the test fails, both the keys will have value equal to 0
+		This method takes a string as parameter and returns a dictionary of
+		probabilities of sentiment of the string
+		keys: 'positive', 'negative'
+		If the test fails, both the keys will have value equal to 0
 		'''
 		self.string = re.sub(r'\W+', ' ', string).lower()
 		self.words = self.string.split(" ")
@@ -64,13 +64,13 @@ class DictionaryTest:
 		positiveScore = 0
 		negativeScore = 0
 		for i in self.words:
-			testPositiveWord = self.CompareWords(i,positiveWords)
+			testPositiveWord = self.compareWords(i,positiveWords)
 			if testPositiveWord!=None:
 				if positiveWords[testPositiveWord]=='strong':
 					positiveScore += 1
 				else:
 					positiveScore += 0.5 
-			testNegativeWord = self.CompareWords(i,negativeWords)	
+			testNegativeWord = self.compareWords(i,negativeWords)	
 			if testNegativeWord!=None:
 				if negativeWords[testNegativeWord]=='strong':
 					negativeScore += 1
@@ -94,15 +94,15 @@ class DictionaryTest:
 		return {'positive':float(positiveScore)/(positiveScore+negativeScore),\
 		'negative':float(negativeScore)/(positiveScore+negativeScore)}
 
-	def CompareWords(self, aString, aDict):
+	def compareWords(self, aString, aDict):
 		'''
-			This method takes a string and a dictionary as parameters and compares the string with
-			the keys of dictionary using CompStrings method and returns the most suitable word match
-			if the probability is greater that 0.9 otherwise it returns None
+		This method takes a string and a dictionary as parameters and compares the string with
+		the keys of dictionary using CompStrings method and returns the most suitable word match
+		if the probability is greater that 0.9 otherwise it returns None
 		'''
 		probabilities = {}
 		for i in aDict:
-			probabilities[i] = self.CompStrings(aString, i)
+			probabilities[i] = self.compStrings(aString, i)
 		maxProbab = 0
 		for i in probabilities:
 			if probabilities[i]>maxProbab:
@@ -114,10 +114,10 @@ class DictionaryTest:
 		else:
 			return None 
 
-	def CompStrings(self,str1,str2):
+	def compStrings(self,str1,str2):
 		'''
-			This method takes two strings as parameters and checks if they are same or not
-			It returns probability of the comparision
+		This method takes two strings as parameters and checks if they are same or not
+		It returns probability of the comparision
 		'''
 		str1 = list(str1)
 		str2 = list(str2)

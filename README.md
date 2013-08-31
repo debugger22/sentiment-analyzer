@@ -20,3 +20,8 @@ print b.analyse("Possibility of Narendra Modi to become the prime minister of In
 {'positive': 0.0, 'negative': 1.0}
 {'positive': 1.0, 'negative': 0.0}
 ```
+<br/>
+<hr/>
+*[Team Members]
+*"Sudhanshu Mishra"<mrsud94@gmail.com>
+*"Ambar Mehrotra"<ambar.prince@gmail.com>

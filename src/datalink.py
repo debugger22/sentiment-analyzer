@@ -10,7 +10,8 @@ class DatabaseConnectionDown:
 		try:
 			self.db = MySQLdb.connect(user='root', db=adb, passwd='adminpass', host='localhost')
 		except MySQLdb.Error, e:
-			return "An error has been raised. %s" %e
+			print "An error has been raised. %s" %e
+			pass
 
 	def fetchTweet(self):
 		'''

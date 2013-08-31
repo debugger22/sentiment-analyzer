@@ -1,6 +1,6 @@
 '''
-	Author: Sudhanshu Mishra
-	Email: mrsud94@gmail.com
+	Authors: Ambar Mehrotra, Sudhanshu Mishra
+	Email: ambar.prince@gmail.com, mrsud94@gmail.com
 '''
 import re
 import json
@@ -64,6 +64,20 @@ class DictionaryTest:
 		positiveScore = 0
 		negativeScore = 0
 		for i in self.words:
+			testPositiveWord = self.CompareWords(i,positiveWords)
+			if testPositiveWord!=None:
+				if positiveWords[testPositiveWord]=='strong':
+					positiveScore += 1
+				else:
+					positiveScore += 0.5 
+			testNegativeWord = self.CompareWords(i,negativeWords)	
+			if testNegativeWord!=None:
+				if negativeWords[testNegativeWord]=='strong':
+					negativeScore += 1
+				else:
+					negativeScore += 0.5	
+
+			'''
 			if i in positiveWords:
 				if positiveWords[i]=='strong':
 					positiveScore += 1
@@ -74,7 +88,61 @@ class DictionaryTest:
 					negativeScore += 1
 				else:
 					negativeScore += 0.5
+			'''
 		if positiveScore + negativeScore == 0:
 			return {'positive':0,'negative':0}
 		return {'positive':float(positiveScore)/(positiveScore+negativeScore),\
 		'negative':float(negativeScore)/(positiveScore+negativeScore)}
+
+	def CompareWords(self, aString, aDict):
+		'''
+			This method takes a string and a dictionary as parameters and compares the string with
+			the keys of dictionary using CompStrings method and returns the most suitable word match
+			if the probability is greater that 0.9 otherwise it returns None
+		'''
+		probabilities = {}
+		for i in aDict:
+			probabilities[i] = self.CompStrings(aString, i)
+		maxProbab = 0
+		for i in probabilities:
+			if probabilities[i]>maxProbab:
+				maxProbab=probabilities[i]
+				correspondingWord = i
+		probabilities = 0
+		if maxProbab>0.9:
+			return correspondingWord
+		else:
+			return None 
+
+	def CompStrings(self,str1,str2):
+		'''
+			This method takes two strings as parameters and checks if they are same or not
+			It returns probability of the comparision
+		'''
+		str1 = list(str1)
+		str2 = list(str2)
+		total = len(str1)
+		count = 0
+		for i in str1:
+			try:
+				str2.index(i)
+				count+=1
+			except:
+				a=1		
+		try:
+			para1 = float(count)/float(total)
+		except:
+			para1 = 0
+		count = 0
+		total = len(str2)
+		for i in str2:
+			try :
+				str1.index(i)
+				count+=1
+			except:
+				a=1		
+		try:
+			para2 = float(count)/float(total)
+		except:
+			para2=0
+		return (para1+para2)/2

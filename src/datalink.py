@@ -4,6 +4,7 @@ class DatabaseConnectionDown:
 	def __init__(self,adb):
 		'''
 			This initializes the Database Connection for downlink
+			@param DatabeseName
 		'''
 		self.adb = adb
 		try:

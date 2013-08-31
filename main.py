@@ -1,7 +1,10 @@
-from src import features
+from src import features, datalink
 
-a = features.Emoticons()
-print a.analyse("What if BJP loses its next election :(?")
+dblink = datalink.DatabaseConnectionDown('perilipsi_tweets')
+emoTest = features.Emoticons()
+dictTest = features.DictionaryTest()
 
-b = features.DictionaryTest()
-print b.analyse("Possibility of Narendra Modi to become the prime minister of India is really high.")
+testTweet = dblink.fetchTweet()
+print "\n\n"+testTweet+"\n\n"
+print emoTest.analyse(testTweet)
+print dictTest.analyse(testTweet)

@@ -22,5 +22,8 @@ print b.analyse("Possibility of Narendra Modi to become the prime minister of In
 ```
 <br/>
 <hr/>
-<a href="http://www.lifelesscodes.blogspot.com">Sudhanshu Mishra</a>
-*"Ambar Mehrotra"<ambar.prince@gmail.com>
+<strong>Team Members</strong>
+<ul>
+<li>Sudhanshu Mishra mrsud94@gmail.com</li>
+<li>Ambar Mehrotra ambar.prince@gmail.com</li>
+</ul>

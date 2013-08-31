@@ -6,7 +6,7 @@ A Python module to do a set of operations on tweets. It uses a collection of sto
 
 <h2>How to use</h2>
 
-<code>
+```python
 from src import features
 
 a = features.Emoticons()
@@ -14,5 +14,10 @@ print a.analyse("What if BJP loses its next election :(?")
 
 b = features.DictionaryTest()
 print b.analyse("Possibility of Narendra Modi to become the prime minister of India is really high.")
-
-</code>
+```
+<br/>
+<strong>Output</strong>
+```python
+{'positive': 0.0, 'negative': 1.0}
+{'positive': 1.0, 'negative': 0.0}
+```

@@ -128,7 +128,7 @@ class DictionaryTest:
 				str2.index(i)
 				count+=1
 			except:
-				a=1		
+				pass
 		try:
 			para1 = float(count)/float(total)
 		except:
@@ -140,7 +140,7 @@ class DictionaryTest:
 				str1.index(i)
 				count+=1
 			except:
-				a=1		
+				pass
 		try:
 			para2 = float(count)/float(total)
 		except:

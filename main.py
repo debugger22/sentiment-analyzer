@@ -6,5 +6,5 @@ dictTest = features.DictionaryTest()
 
 testTweet = dblink.fetchTweet()
 print "\n\n"+testTweet+"\n\n"
-print emoTest.analyse(testTweet)
-print dictTest.analyse(testTweet)
+print "Emoticons:", emoTest.analyse(testTweet)
+print "DictionaryTest:", dictTest.analyse(testTweet)

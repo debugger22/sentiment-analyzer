@@ -1,7 +1,3 @@
-'''
-	Authors: Ambar Mehrotra, Sudhanshu Mishra
-	Email: ambar.prince@gmail.com, mrsud94@gmail.com
-'''
 import re
 import json
 

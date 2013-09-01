@@ -8,7 +8,7 @@ class DatabaseConnectionDown:
 		'''
 		self.adb = adb
 		try:
-			self.db = MySQLdb.connect(user='root', db=adb, passwd='gyanendra', host='localhost')
+			self.db = MySQLdb.connect(user='root', db=adb, passwd='adminpass', host='localhost')
 		except MySQLdb.Error, e:
 			print "An error has been raised. %s" %e
 

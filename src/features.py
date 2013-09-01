@@ -16,7 +16,7 @@ class Emoticons:
 		self.string = self.string.replace('.', '')
 		self.string = self.string.replace('?', '')
 		self.words = self.string.split(" ")
-		if self.words[-1] == '':
+		if self.words[-1] == '':#how will something to to the -1 index?
 			del self.words[-1]
 		positiveEmoz = [':)', ':-)', ':D', ':-D', ':P', ':-P', ';)', ';-)', ';D', ';-D', ':o)', ':]', ':3',\
 		 ':c)', ':>', '=]', '8)', '=)', ':}', '8D', 'xD', 'XD', 'X-D', '=D', '=3', ':-))', ':\')', 'lol', 'lol!']

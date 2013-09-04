@@ -34,6 +34,11 @@ Progress
 - [ ] Negation
 - [ ] Punctuation
 
+Social Networks
+---------------
+* Twitter
+* Facebook
+
 Team Members
 ------------
 <table border="0">

@@ -48,6 +48,7 @@ class DictionaryTest:
 		If the test fails, both the keys will have value equal to 0
 		'''
 		self.string = re.sub(r'\W+', ' ', string).lower()
+		self.string = self.repairString(self.string)
 		self.words = self.string.split(" ")
 		if self.words[-1] == '':
 			del self.words[-1]
@@ -142,3 +143,11 @@ class DictionaryTest:
 		except:
 			para2=0
 		return (para1+para2)/2
+
+	def repairString(self, string):
+		data = {'m':'am','u':'you','yrs':'years','ur':'your','urs':'yours','tc':'take care','gn':'good night','nite':'night','wat':'what','abt':'about','k':'okay','kk':'okay','ok':'okay','don\'t':'do not','won\'t':'will not','gonna':'going to','juz':'just','jus':'just','fk':'fuck','wtf':'what the fuck','shud':'should','coz':'because','cos':'because'}
+		string = string.split(" ")
+		for i in string:
+			if i in data:
+				string[string.index(i)] = data[i]
+		return " ".join(string)

@@ -34,10 +34,10 @@ Progress
 - [ ] Negation
 - [ ] Punctuation
 
-Social Networks
+Social Network APIs
 ---------------
-* Twitter
-* Facebook
+* Twitter Search API
+* Facebook Graph API
 
 Team Members
 ------------

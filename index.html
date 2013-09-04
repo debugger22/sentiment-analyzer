@@ -1,43 +1,33 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
     <title>Sentiment-analyzer by mrsud</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/respond.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <!--[if lt IE 8]>
-    <link rel="stylesheet" href="stylesheets/ie.css">
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
   </head>
+
   <body>
-      <div id="header">
-        <nav>
-          <li class="fork"><a href="https://github.com/mrsud/sentiment-analyzer">View On GitHub</a></li>
-          <li class="downloads"><a href="https://github.com/mrsud/sentiment-analyzer/zipball/master">ZIP</a></li>
-          <li class="downloads"><a href="https://github.com/mrsud/sentiment-analyzer/tarball/master">TAR</a></li>
-          <li class="title">DOWNLOADS</li>
-        </nav>
-      </div><!-- end header -->
 
-    <div class="wrapper">
+    <header>
+      <div class="container">
+        <h1>Sentiment-analyzer</h1>
+        <h2>Sentiment analysis on tweets and facebook comments</h2>
 
-      <section>
-        <div id="title">
-          <h1>Sentiment-analyzer</h1>
-          <p>Sentiment analysis on tweets and facebook comments</p>
-          <hr>
-          <span class="credits left">Project maintained by <a href="https://github.com/mrsud">mrsud</a></span>
-          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
-        </div>
+        <section id="downloads">
+          <a href="https://github.com/mrsud/sentiment-analyzer/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/mrsud/sentiment-analyzer/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/mrsud/sentiment-analyzer" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
 
+    <div class="container">
+      <section id="main_content">
         <h1>
 <a name="sentiment-analyzer" class="anchor" href="#sentiment-analyzer"><span class="octicon octicon-link"></span></a>Sentiment Analyzer</h1>
 
@@ -52,32 +42,39 @@
 </ul><h2>
 <a name="how-to-use" class="anchor" href="#how-to-use"><span class="octicon octicon-link"></span></a>How to use</h2>
 
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">src</span> <span class="kn">import</span> <span class="n">features</span>
-
-<span class="n">a</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">Emoticons</span><span class="p">()</span>
-<span class="k">print</span> <span class="n">a</span><span class="o">.</span><span class="n">analyse</span><span class="p">(</span><span class="s">"What if BJP loses its next election :(?"</span><span class="p">)</span>
-
-<span class="n">b</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">DictionaryTest</span><span class="p">()</span>
-<span class="k">print</span> <span class="n">b</span><span class="o">.</span><span class="n">analyse</span><span class="p">(</span><span class="s">"Possibility of Narendra Modi to become the prime minister of India is really high."</span><span class="p">)</span>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">src</span> <span class="kn">import</span> <span class="n">features</span><span class="p">,</span> <span class="n">datalink</span><span class="p">,</span> <span class="n">hashtags</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="n">dblink</span> <span class="o">=</span> <span class="n">datalink</span><span class="o">.</span><span class="n">DatabaseConnectionDown</span><span class="p">(</span><span class="s">'perilipsi_tweets'</span><span class="p">)</span>
+<span class="n">emoTest</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">Emoticons</span><span class="p">()</span>
+<span class="n">dictTest</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">DictionaryTest</span><span class="p">()</span>
+<span class="n">hashtest</span> <span class="o">=</span> <span class="n">hashtags</span><span class="o">.</span><span class="n">hashtags</span><span class="p">()</span>
+<span class="n">testTweet</span><span class="p">,</span> <span class="n">tweetTime</span> <span class="o">=</span> <span class="n">dblink</span><span class="o">.</span><span class="n">fetchTweet</span><span class="p">()[</span><span class="s">'tweet'</span><span class="p">],</span> <span class="n">dblink</span><span class="o">.</span><span class="n">fetchTweet</span><span class="p">()[</span><span class="s">'time'</span><span class="p">]</span>    <span class="c">#You can pass anything you want</span>
+<span class="n">emo_test</span> <span class="o">=</span> <span class="n">emoTest</span><span class="o">.</span><span class="n">analyse</span><span class="p">(</span><span class="n">testTweet</span><span class="p">)</span>
+<span class="n">dict_test</span> <span class="o">=</span> <span class="n">dictTest</span><span class="o">.</span><span class="n">analyse</span><span class="p">(</span><span class="n">testTweet</span><span class="p">)</span>
+<span class="n">hash_test</span> <span class="o">=</span> <span class="n">hashtest</span><span class="o">.</span><span class="n">analyseHashtagTweet</span><span class="p">(</span><span class="n">testTweet</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">"Emoticons:"</span><span class="p">,</span> <span class="n">emo_test</span>
+<span class="k">print</span> <span class="s">"DictionaryTest:"</span><span class="p">,</span> <span class="n">dict_test</span>
+<span class="k">print</span> <span class="s">"Hashtags: "</span><span class="p">,</span> <span class="n">hash_test</span>
 </pre></div>
 
 <p><strong>Output</strong></p>
 
-<div class="highlight"><pre><span class="p">{</span><span class="s">'positive'</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s">'negative'</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">}</span>
-<span class="p">{</span><span class="s">'positive'</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s">'negative'</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">}</span>
+<div class="highlight"><pre><span class="n">Emoticons</span><span class="p">:</span> <span class="p">{</span><span class="s">'positive'</span><span class="p">:</span> <span class="mf">0.47</span><span class="p">,</span> <span class="s">'negative'</span><span class="p">:</span> <span class="mf">0.53</span><span class="p">}</span>
+<span class="n">DictionaryTest</span><span class="p">:</span> <span class="p">{</span><span class="s">'positive'</span><span class="p">:</span> <span class="mf">0.46153846153846156</span><span class="p">,</span> <span class="s">'negative'</span><span class="p">:</span> <span class="mf">0.5384615384615384</span><span class="p">}</span>
+<span class="n">Hashtags</span><span class="p">:</span>  <span class="p">{</span><span class="s">'positive'</span><span class="p">:</span> <span class="mf">0.38</span><span class="p">,</span> <span class="s">'negative'</span><span class="p">:</span> <span class="mf">0.62</span><span class="p">}</span>
 </pre></div>
 
 <h2>
 <a name="progress" class="anchor" href="#progress"><span class="octicon octicon-link"></span></a>Progress</h2>
 
 <ul>
-<li>[x] Emoticons: This class uses emoticons detection to classify the passed string as positive or negative</li>
-<li>[x] DictionaryTest: This class uses a set of English words and their subjectivity to give a score to a string</li>
-<li>[ ] AllCaps</li>
-<li>[ ] ElongatedWords</li>
-<li>[ ] HashTags</li>
-<li>[ ] Negation</li>
-<li>[ ] Punctuation</li>
+<li>Emoticons: This class uses emoticons detection to classify the passed string as positive or negative</li>
+<li>DictionaryTest: This class uses a set of English words and their subjectivity to give a score to a string</li>
+<li>hashtags: This class extracts hashtags from the string sent and calculates the sentiment based on a trained dataset</li>
+<li>AllCaps</li>
+<li>ElongatedWords</li>
+<li>Negation</li>
+<li>Punctuation</li>
 </ul><h2>
 <a name="social-network-apis" class="anchor" href="#social-network-apis"><span class="octicon octicon-link"></span></a>Social Network APIs</h2>
 
@@ -102,9 +99,8 @@
 </tr>
 </table>
       </section>
-
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+
     
   </body>
 </html>

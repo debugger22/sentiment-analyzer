@@ -1,5 +1,4 @@
 import numpy
-import numpy
 from matplotlib import pyplot as plt, rc
 
 class Plotter:

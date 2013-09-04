@@ -13,4 +13,5 @@ hash_test = hashtest.analyseHashtagTweet(testTweet)['positive']
 print "Emoticons:", emo_test
 print "DictionaryTest:", dict_test
 print "Hashtags: ", hash_test
-plotter.plot([1,2,3],[emo_test,dict_test,hashtest],['emo_test','dict_test','hashtest'],[`emo_test`,`dict_test`,`hash_test`])
+
+#plotter.plot([1,2,3],[emo_test,dict_test,hashtest],['emo_test','dict_test','hashtest'],[`emo_test`,`dict_test`,`hash_test`])

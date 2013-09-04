@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Sentiment-analyzer by mrsud</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Sentiment-analyzer</h1>
+        <h2>Sentiment analysis on tweets and facebook comments</h2>
+        <a href="https://github.com/mrsud/sentiment-analyzer" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a name="sentiment-analyzer" class="anchor" href="#sentiment-analyzer"><span class="octicon octicon-link"></span></a>Sentiment Analyzer</h1>
+
+<p>A Python module to do a set of operations on tweets. It uses a collection of stopwords to train a dataset for the sentiment analysis. It uses the basic principle of bag-of-words used for natural language processing.</p>
+
+<h2>
+<a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h2>
+
+<ul>
+<li>numpy</li>
+<li>matplotlib(To plot sentiments)</li>
+</ul><h2>
+<a name="how-to-use" class="anchor" href="#how-to-use"><span class="octicon octicon-link"></span></a>How to use</h2>
+
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">src</span> <span class="kn">import</span> <span class="n">features</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">Emoticons</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">a</span><span class="o">.</span><span class="n">analyse</span><span class="p">(</span><span class="s">"What if BJP loses its next election :(?"</span><span class="p">)</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">DictionaryTest</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">b</span><span class="o">.</span><span class="n">analyse</span><span class="p">(</span><span class="s">"Possibility of Narendra Modi to become the prime minister of India is really high."</span><span class="p">)</span>
+</pre></div>
+
+<p><strong>Output</strong></p>
+
+<div class="highlight"><pre><span class="p">{</span><span class="s">'positive'</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s">'negative'</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">}</span>
+<span class="p">{</span><span class="s">'positive'</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s">'negative'</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">}</span>
+</pre></div>
+
+<h2>
+<a name="progress" class="anchor" href="#progress"><span class="octicon octicon-link"></span></a>Progress</h2>
+
+<ul>
+<li>[x] Emoticons: This class uses emoticons detection to classify the passed string as positive or negative</li>
+<li>[x] DictionaryTest: This class uses a set of English words and their subjectivity to give a score to a string</li>
+<li>[ ] AllCaps</li>
+<li>[ ] ElongatedWords</li>
+<li>[ ] HashTags</li>
+<li>[ ] Negation</li>
+<li>[ ] Punctuation</li>
+</ul><h2>
+<a name="social-network-apis" class="anchor" href="#social-network-apis"><span class="octicon octicon-link"></span></a>Social Network APIs</h2>
+
+<ul>
+<li>Twitter Search API</li>
+<li>Facebook Graph API</li>
+</ul><h2>
+<a name="team-members" class="anchor" href="#team-members"><span class="octicon octicon-link"></span></a>Team Members</h2>
+
+<table border="0">
+<tr>
+<th>Name</th>
+<th>Email</th>
+</tr>
+<tr>
+<td>Sudhanshu Mishra</td>
+<td> mrsud94@gmail.com</td>
+</tr>
+<tr>
+<td>Ambar Mehrotra</td>
+<td>ambar.prince@gmail.com</td>
+</tr>
+</table>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/mrsud/sentiment-analyzer/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/mrsud/sentiment-analyzer/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/mrsud/sentiment-analyzer"></a> is maintained by <a href="https://github.com/mrsud">mrsud</a>.</p>
+
+          <p>This page was generated by <a href="pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>

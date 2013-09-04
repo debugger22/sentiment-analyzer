@@ -14,7 +14,7 @@ class hashtags:
 		self.tempTweet = tweet.split(" ")
 		self.extractHashtagTweet()
 		if len(self.hashtagList)==0:
-			return {'postive':0,'negative':0}
+			return {'positive':0,'negative':0}
 
 		fin = open("data/unigrams-pmilexicon.txt","r")
 		resultDict = {}
@@ -41,8 +41,8 @@ class hashtags:
 		positiveProb = sum(positiveProb)/len(self.hashtagList)
 		negativeProb = sum(negativeProb)/len(self.hashtagList)
 		if positiveProb+negativeProb==0:
-			return {'postive':0,'negative':0}
-		resultDict["postive"] = positiveProb
+			return {'positive':0,'negative':0}
+		resultDict["positive"] = positiveProb
 		resultDict["negative"] = negativeProb
 		return resultDict 
 

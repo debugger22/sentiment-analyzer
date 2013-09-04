@@ -27,7 +27,7 @@ print "Hashtags: ", hash_test
 ```
 <strong>Output</strong>
 ```python
-Emoticons: {'positive': 0.47, 'negative': 0.53}
+Emoticons: {'positive': 0.33, 'negative': 0.66}
 DictionaryTest: {'positive': 0.46153846153846156, 'negative': 0.5384615384615384}
 Hashtags:  {'positive': 0.38, 'negative': 0.62}
 ```

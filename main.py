@@ -6,9 +6,9 @@ emoTest = features.Emoticons()
 dictTest = features.DictionaryTest()
 hashtest = hashtags.hashtags()
 testTweet, tweetTime = dblink.fetchTweet()['tweet'], dblink.fetchTweet()['time']	#You can pass anything you want
-emo_test = emoTest.analyse(testTweet)['positive']
-dict_test = dictTest.analyse(testTweet)['positive']
-hash_test = hashtest.analyseHashtagTweet(testTweet)['positive']
+emo_test = emoTest.analyse(testTweet)
+dict_test = dictTest.analyse(testTweet)
+hash_test = hashtest.analyseHashtagTweet(testTweet)
 print "Emoticons:", emo_test
 print "DictionaryTest:", dict_test
 print "Hashtags: ", hash_test

@@ -5,8 +5,8 @@ A Python module to do a set of operations on tweets. It uses a collection of sto
 
 Dependencies
 ------------
-numpy
-matplotlib(To plot sentiments)
+* numpy
+* matplotlib(To plot sentiments)
 
 How to use
 ----------

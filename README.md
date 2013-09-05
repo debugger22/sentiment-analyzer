@@ -46,6 +46,10 @@ Social Network APIs
 * Twitter Search API
 * Facebook Graph API
 
+Computation Engines
+-------------------
+Wolfram Alpha
+
 Team Members
 ------------
 <table border="0">

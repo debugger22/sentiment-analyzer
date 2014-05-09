@@ -5,7 +5,9 @@ plotter = sentiment_plot.Plotter()
 emoTest = features.Emoticons()
 dictTest = features.DictionaryTest()
 hashtest = hashtags.hashtags()
-testTweet, tweetTime = dblink.fetchTweet()['tweet'], dblink.fetchTweet()['time']	#You can pass anything you want
+# You can pass anything you want
+testTweet, tweetTime = dblink.fetchTweet(
+)['tweet'], dblink.fetchTweet()['time']
 emo_test = emoTest.analyse(testTweet)
 dict_test = dictTest.analyse(testTweet)
 hash_test = hashtest.analyseHashtagTweet(testTweet)
